@@ -22,4 +22,20 @@ public class parkingLotTest {
         //then
         assertNotNull(ticket);
     }
+
+    @Test
+    void should_fetch_car_when_parkingLot_parkingLot_fetch_given_carTicket() {
+        //given
+        Car car = new Car();
+
+        //when
+        parkingLot parkinglot = new parkingLot();
+        carTicket ticket =parkinglot.park(car);
+        Car carFetch =parkinglot.fetch(ticket);
+
+        //then
+        assertNotNull(carFetch);
+    }
+
+
 }
