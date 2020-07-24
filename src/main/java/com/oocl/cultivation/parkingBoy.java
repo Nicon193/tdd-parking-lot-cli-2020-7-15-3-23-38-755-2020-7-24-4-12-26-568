@@ -1,7 +1,7 @@
 package com.oocl.cultivation;
 
 public class parkingBoy {
-    parkingLot parkinglot ;
+    parkingLot parkinglot;
 
     public parkingBoy(parkingLot parkinglot) {
         this.parkinglot = parkinglot;

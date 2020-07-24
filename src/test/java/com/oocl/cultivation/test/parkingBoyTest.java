@@ -18,10 +18,27 @@ public class parkingBoyTest {
         //when
         parkingLot parkinglot = new parkingLot();
         parkingBoy parkingboy = new parkingBoy(parkinglot);
-        carTicket ticket =parkingboy.parkCar(car);
+        carTicket ticket = parkingboy.parkCar(car);
 
         //then
         assertNotNull(ticket);
+    }
+
+    @Test
+    void should_return_multiTickets_when_parkingBoy_parkCar_given_multiCars() {
+        //given
+        Car car1 = new Car();
+        Car car2 = new Car();
+
+        //when
+        parkingLot parkinglot = new parkingLot();
+        parkingBoy parkingboy = new parkingBoy(parkinglot);
+        carTicket ticket1 = parkingboy.parkCar(car1);
+        carTicket ticket2 = parkingboy.parkCar(car2);
+
+        //then
+        assertNotNull(ticket1);
+        assertNotNull(ticket2);
     }
 
     @Test
@@ -32,8 +49,8 @@ public class parkingBoyTest {
         //when
         parkingLot parkinglot = new parkingLot();
         parkingBoy parkingboy = new parkingBoy(parkinglot);
-        carTicket ticket =parkingboy.parkCar(car);
-        Car carFetch =parkingboy.fetchCar(ticket);
+        carTicket ticket = parkingboy.parkCar(car);
+        Car carFetch = parkingboy.fetchCar(ticket);
 
         //then
         assertNotNull(carFetch);
