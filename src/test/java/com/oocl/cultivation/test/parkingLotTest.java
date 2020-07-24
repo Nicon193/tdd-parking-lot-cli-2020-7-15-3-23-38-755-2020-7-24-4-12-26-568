@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.concurrent.locks.LockSupport;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class parkingLotTest {
     @Test
@@ -35,6 +36,20 @@ public class parkingLotTest {
 
         //then
         assertNotNull(carFetch);
+    }
+
+    @Test
+    void should_noCar_when_parkingLot_parkingLot_fetch_given_wrongCarTicket() {
+        //given
+        carTicket ticket =new carTicket();
+
+        //when
+        parkingLot parkinglot = new parkingLot();
+
+        Car carFetch =parkinglot.fetch(ticket);
+
+        //then
+        assertNull(carFetch);
     }
 
 
