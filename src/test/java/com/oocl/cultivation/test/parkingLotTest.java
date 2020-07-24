@@ -66,4 +66,20 @@ public class parkingLotTest {
         //then
         assertNull(secondFetchCar);
     }
+
+    @Test
+    void should_cantParkingCar_when_parkingLot_parkingLot_park_given_parkGT10() {
+        //given
+        carTicket ticket =new carTicket();
+
+
+        //when
+        parkingLot parkinglot = new parkingLot(10);
+        for (int i = 0; i <=10 ; i++) {
+            ticket= parkinglot.park(new Car());
+        }
+
+        //then
+        assertNull(ticket);
+    }
 }
