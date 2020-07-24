@@ -16,7 +16,8 @@ public class parkingBoyTest {
         Car car = new Car();
 
         //when
-        parkingBoy parkingboy = new parkingBoy();
+        parkingLot parkinglot = new parkingLot();
+        parkingBoy parkingboy = new parkingBoy(parkinglot);
         carTicket ticket =parkingboy.parkCar(car);
 
         //then
@@ -29,7 +30,8 @@ public class parkingBoyTest {
         Car car = new Car();
 
         //when
-        parkingBoy parkingboy = new parkingBoy();
+        parkingLot parkinglot = new parkingLot();
+        parkingBoy parkingboy = new parkingBoy(parkinglot);
         carTicket ticket =parkingboy.parkCar(car);
         Car carFetch =parkingboy.fetchCar(ticket);
 
