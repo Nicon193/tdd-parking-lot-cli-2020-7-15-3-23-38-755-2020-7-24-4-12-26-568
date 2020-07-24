@@ -7,4 +7,8 @@ public class parkingBoy {
     public carTicket parkCar(Car car) {
         return parkinglot.park(car);
     }
+
+    public Car fetchCar(carTicket ticket) {
+        return null;
+    }
 }
