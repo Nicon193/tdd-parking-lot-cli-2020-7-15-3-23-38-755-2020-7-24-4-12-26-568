@@ -8,7 +8,7 @@ public class customer {
 
     public String getResponseMessage(Car carFetch) {
         if(ticket==null){
-           return  "";
+           return  "Please provide your parking ticket.";
         }
 
         if (carFetch == null) return "Unrecognized parking ticket.";
