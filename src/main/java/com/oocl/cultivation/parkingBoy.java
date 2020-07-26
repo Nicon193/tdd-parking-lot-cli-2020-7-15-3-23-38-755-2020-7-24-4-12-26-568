@@ -12,6 +12,7 @@ public class parkingBoy {
     }
 
     public Car fetchCar(carTicket ticket) {
+
         return parkinglot.fetch(ticket);
     }
 }
