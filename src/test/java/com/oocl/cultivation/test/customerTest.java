@@ -17,7 +17,8 @@ public class customerTest {
         //when
         parkingLot parkinglot = new parkingLot();
         parkingBoy parkingBoy = new parkingBoy(parkinglot);
-        Car carFetch =parkingBoy.fetchCar(customer.getTicket());
+        parkingBoy.setTicket(ticket);
+        Car carFetch =parkingBoy.fetchCar(parkingBoy.getTicket());
         String responseMessage =customer.getResponseMessage(carFetch);
 
         //then
