@@ -30,6 +30,6 @@ public class smartParkingBoyTest {
         carTicket ticket =smartParkingBoy.parkCar(car);
 
         //then
-        assertSame(ticket.getParkingLot(), parkingLotList.get(2));
+        assertSame(parkingLotList.get(2),ticket.getParkingLot());
     }
 }

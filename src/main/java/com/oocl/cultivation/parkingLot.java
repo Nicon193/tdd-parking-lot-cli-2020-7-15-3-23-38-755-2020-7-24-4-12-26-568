@@ -30,4 +30,8 @@ public class parkingLot {
         map.remove(ticket);
         return car;
     }
+
+    public HashMap<carTicket, Car> getMap() {
+        return map;
+    }
 }

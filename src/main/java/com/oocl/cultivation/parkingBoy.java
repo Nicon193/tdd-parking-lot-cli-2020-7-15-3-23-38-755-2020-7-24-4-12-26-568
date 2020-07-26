@@ -3,7 +3,7 @@ package com.oocl.cultivation;
 import java.util.ArrayList;
 
 public class parkingBoy {
-   private ArrayList<parkingLot> parkingLotList;
+    ArrayList<parkingLot> parkingLotList;
 
 
     public carTicket parkCar(Car car) {
