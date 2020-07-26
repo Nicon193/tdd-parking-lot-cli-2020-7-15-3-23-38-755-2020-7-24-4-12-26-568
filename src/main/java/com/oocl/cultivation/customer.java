@@ -7,11 +7,18 @@ public class customer {
 
 
     public String getResponseMessage(Car carFetch) {
-        if(ticket==null){
+        if(this.ticket==null){
            return  "Please provide your parking ticket.";
         }
 
         if (carFetch == null) return "Unrecognized parking ticket.";
+
+        return "";
+    }
+
+    public String getResponseMessage(carTicket carTicket) {
+
+        if (carTicket == null) return "Not enough position.";
 
         return "";
     }
