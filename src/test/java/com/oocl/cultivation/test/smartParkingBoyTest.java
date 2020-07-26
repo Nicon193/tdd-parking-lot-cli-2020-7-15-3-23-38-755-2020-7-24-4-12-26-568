@@ -2,12 +2,13 @@ package com.oocl.cultivation.test;
 
 import com.oocl.cultivation.Car;
 import com.oocl.cultivation.carTicket;
-import com.oocl.cultivation.parkingBoy;
+import com.oocl.cultivation.smartParkingBoy;
 import com.oocl.cultivation.parkingLot;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class smartParkingBoyTest {
@@ -21,14 +22,14 @@ public class smartParkingBoyTest {
             parkingLotList.add(new parkingLot());
         }
 
-        parkingBoy parkingboy = new parkingBoy();
-        parkingboy.setParkingLotList(parkingLotList);
+        smartParkingBoy smartParkingBoy = new smartParkingBoy();
+        smartParkingBoy.setParkingLotList(parkingLotList);
         for (int i = 0; i <2 ; i++) {
-            parkingboy.parkCar(new Car());
+            smartParkingBoy.parkCar(new Car());
         }
-        carTicket ticket =parkingboy.parkCar(car);
+        carTicket ticket =smartParkingBoy.parkCar(car);
 
         //then
-        assertTrue(ticket.getParkingLot()==parkingLotList.get(2));
+        assertSame(ticket.getParkingLot(), parkingLotList.get(2));
     }
 }
