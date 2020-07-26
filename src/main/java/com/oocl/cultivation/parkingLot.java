@@ -34,4 +34,8 @@ public class parkingLot {
     public HashMap<carTicket, Car> getMap() {
         return map;
     }
+
+    public int getCapacity() {
+        return capacity;
+    }
 }
