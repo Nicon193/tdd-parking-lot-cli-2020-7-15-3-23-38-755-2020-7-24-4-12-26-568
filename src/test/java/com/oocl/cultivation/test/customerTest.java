@@ -24,5 +24,22 @@ public class customerTest {
         assertEquals("Unrecognized parking ticket.",responseMessage);
     }
 
+
+    @Test
+    void should_errorMessage_when_customer_getResponseMessage_given_noCarTicket() {
+        //given
+        customer customer = new customer();
+
+
+        //when
+        parkingLot parkinglot = new parkingLot();
+        parkingBoy parkingBoy = new parkingBoy(parkinglot);
+        Car carFetch =parkingBoy.fetchCar(customer.getTicket());
+        String responseMessage =customer.getResponseMessage(carFetch);
+
+        //then
+        assertEquals("Please provide your parking ticket.",responseMessage);
+    }
+
     
 }
