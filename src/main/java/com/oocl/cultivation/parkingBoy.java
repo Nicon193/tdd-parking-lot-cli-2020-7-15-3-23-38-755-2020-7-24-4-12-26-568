@@ -1,8 +1,8 @@
 package com.oocl.cultivation;
 
 public class parkingBoy {
-    parkingLot parkinglot;
-    carTicket ticket;
+   private parkingLot parkinglot;
+   private carTicket ticket;
 
     public parkingBoy(parkingLot parkinglot) {
         this.parkinglot = parkinglot;
@@ -17,16 +17,6 @@ public class parkingBoy {
         return parkinglot.fetch(ticket);
     }
 
-
-    public String receiveTicket(carTicket ticket){
-        if(ticket==null){
-            this.ticket=ticket;
-            return "Please provide your parking ticket.";
-        }
-
-        return "wait a moment";
-
-    }
 
     public parkingLot getParkinglot() {
         return parkinglot;
