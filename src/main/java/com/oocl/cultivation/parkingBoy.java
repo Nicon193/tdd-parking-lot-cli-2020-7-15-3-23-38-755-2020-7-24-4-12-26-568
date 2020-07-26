@@ -22,6 +22,8 @@ public class parkingBoy {
 
     public Car fetchCar(carTicket ticket) {
 
+        if(ticket==null) return null;
+
         return ticket.getParkingLot().fetch(ticket);
     }
 

@@ -13,11 +13,12 @@ public class customerTest {
     void should_errorMessage_when_customer_getResponseMessage_given_wrongOrUsedCarTicket() {
         //given
         customer customer = new customer();
+        parkingLot parkinglot = new parkingLot();
         carTicket ticket =new carTicket();
+        ticket.setParkingLot(parkinglot);
         customer.setTicket(ticket);
 
         //when
-        parkingLot parkinglot = new parkingLot();
         ArrayList<parkingLot> parkingLotList =new ArrayList<>();
         parkingLotList.add(parkinglot);
         parkingBoy parkingBoy = new parkingBoy();
@@ -34,7 +35,6 @@ public class customerTest {
     void should_errorMessage_when_customer_getResponseMessage_given_noCarTicket() {
         //given
         customer customer = new customer();
-
 
         //when
         parkingLot parkinglot = new parkingLot();
