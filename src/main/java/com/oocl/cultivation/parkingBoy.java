@@ -1,31 +1,36 @@
 package com.oocl.cultivation;
 
+import java.util.ArrayList;
+
 public class parkingBoy {
-   private parkingLot parkinglot;
+   private ArrayList<parkingLot> parkingLotList;
 
-
-    public parkingBoy(parkingLot parkinglot) {
-        this.parkinglot = parkinglot;
-    }
 
     public carTicket parkCar(Car car) {
+        carTicket ticket=null;
+        for (parkingLot parkinglot:parkingLotList) {
+            ticket=parkinglot.park(car);
+            if (ticket!=null){
+                ticket.setCar(car);
+                ticket.setParkingLot(parkinglot);
+                break;
+            }
+        }
+        return ticket;
 
-
-        return parkinglot.park(car);
     }
 
     public Car fetchCar(carTicket ticket) {
 
-        return parkinglot.fetch(ticket);
+        return ticket.getParkingLot().fetch(ticket);
     }
 
 
-    public parkingLot getParkinglot() {
-        return parkinglot;
+    public ArrayList<parkingLot> getParkingLotList() {
+        return parkingLotList;
     }
 
-    public void setParkinglot(parkingLot parkinglot) {
-        this.parkinglot = parkinglot;
+    public void setParkingLotList(ArrayList<parkingLot> parkingLotList) {
+        this.parkingLotList = parkingLotList;
     }
-
 }

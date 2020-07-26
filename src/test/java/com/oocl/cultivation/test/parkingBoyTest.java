@@ -6,6 +6,8 @@ import com.oocl.cultivation.parkingBoy;
 import com.oocl.cultivation.parkingLot;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
@@ -18,7 +20,11 @@ public class parkingBoyTest {
 
         //when
         parkingLot parkinglot = new parkingLot();
-        parkingBoy parkingboy = new parkingBoy(parkinglot);
+        ArrayList<parkingLot> parkingLotList =new ArrayList<>();
+        parkingLotList.add(parkinglot);
+        parkingBoy parkingboy = new parkingBoy();
+        parkingboy.setParkingLotList(parkingLotList);
+
         carTicket ticket = parkingboy.parkCar(car);
 
         //then
@@ -33,7 +39,10 @@ public class parkingBoyTest {
 
         //when
         parkingLot parkinglot = new parkingLot();
-        parkingBoy parkingboy = new parkingBoy(parkinglot);
+        ArrayList<parkingLot> parkingLotList =new ArrayList<>();
+        parkingLotList.add(parkinglot);
+        parkingBoy parkingboy = new parkingBoy();
+        parkingboy.setParkingLotList(parkingLotList);
         carTicket ticket1 = parkingboy.parkCar(car1);
         carTicket ticket2 = parkingboy.parkCar(car2);
 
@@ -49,12 +58,37 @@ public class parkingBoyTest {
 
         //when
         parkingLot parkinglot = new parkingLot();
-        parkingBoy parkingboy = new parkingBoy(parkinglot);
+        parkingBoy parkingboy = new parkingBoy();
+        ArrayList<parkingLot> parkingLotList =new ArrayList<>();
+        parkingLotList.add(parkinglot);
+        parkingboy.setParkingLotList(parkingLotList);
+
         carTicket ticket = parkingboy.parkCar(car);
         Car carFetch = parkingboy.fetchCar(ticket);
 
         //then
         assertNotNull(carFetch);
+    }
+
+    @Test
+    void should_return_ticket_when_parkingBoy_parkCar_given_car_toAnotherLot() {
+        //given
+        Car car = new Car();
+        //when
+        ArrayList<parkingLot> parkingLotList =new ArrayList<>();
+        for (int i = 0; i <3 ; i++) {
+            parkingLotList.add(new parkingLot());
+        }
+
+        parkingBoy parkingboy = new parkingBoy();
+        parkingboy.setParkingLotList(parkingLotList);
+        for (int i = 0; i <10 ; i++) {
+            parkingboy.parkCar(new Car());
+        }
+        carTicket ticket =parkingboy.parkCar(car);
+
+        //then
+        assertNotNull(ticket);
     }
 
 

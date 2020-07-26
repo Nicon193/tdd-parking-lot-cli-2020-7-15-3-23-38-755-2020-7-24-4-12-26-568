@@ -3,6 +3,8 @@ package com.oocl.cultivation.test;
 import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
@@ -16,7 +18,10 @@ public class customerTest {
 
         //when
         parkingLot parkinglot = new parkingLot();
-        parkingBoy parkingBoy = new parkingBoy(parkinglot);
+        ArrayList<parkingLot> parkingLotList =new ArrayList<>();
+        parkingLotList.add(parkinglot);
+        parkingBoy parkingBoy = new parkingBoy();
+        parkingBoy.setParkingLotList(parkingLotList);
         Car carFetch =parkingBoy.fetchCar(customer.getTicket());
         String responseMessage =customer.getResponseMessage(carFetch);
 
@@ -33,7 +38,10 @@ public class customerTest {
 
         //when
         parkingLot parkinglot = new parkingLot();
-        parkingBoy parkingBoy = new parkingBoy(parkinglot);
+        ArrayList<parkingLot> parkingLotList =new ArrayList<>();
+        parkingLotList.add(parkinglot);
+        parkingBoy parkingBoy = new parkingBoy();
+        parkingBoy.setParkingLotList(parkingLotList);
         Car carFetch =parkingBoy.fetchCar(customer.getTicket());
         String responseMessage =customer.getResponseMessage(carFetch);
 
@@ -52,7 +60,10 @@ public class customerTest {
 
         //when
         parkingLot parkinglot = new parkingLot();
-        parkingBoy parkingBoy = new parkingBoy(parkinglot);
+        ArrayList<parkingLot> parkingLotList =new ArrayList<>();
+        parkingLotList.add(parkinglot);
+        parkingBoy parkingBoy = new parkingBoy();
+        parkingBoy.setParkingLotList(parkingLotList);
         for (int i = 0; i <=10 ; i++) {
                 parkinglot.park(new Car());
         }
