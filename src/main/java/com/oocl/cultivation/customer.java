@@ -7,6 +7,10 @@ public class customer {
 
 
     public String getResponseMessage(Car carFetch) {
+        if (carFetch == null) {
+          return "Unrecognized parking ticket.";
+
+        }
         return "";
     }
 
