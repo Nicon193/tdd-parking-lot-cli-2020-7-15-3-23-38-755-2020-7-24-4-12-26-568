@@ -2,7 +2,7 @@ package com.oocl.cultivation;
 
 public class parkingBoy {
    private parkingLot parkinglot;
-   private carTicket ticket;
+
 
     public parkingBoy(parkingLot parkinglot) {
         this.parkinglot = parkinglot;
@@ -26,11 +26,4 @@ public class parkingBoy {
         this.parkinglot = parkinglot;
     }
 
-    public carTicket getTicket() {
-        return ticket;
-    }
-
-    public void setTicket(carTicket ticket) {
-        this.ticket = ticket;
-    }
 }
