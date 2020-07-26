@@ -17,7 +17,6 @@ public class parkingBoy {
             }
         }
         return ticket;
-
     }
 
     public Car fetchCar(carTicket ticket) {

@@ -13,11 +13,11 @@ public class carTicket {
         this.car = car;
     }
 
-    public com.oocl.cultivation.parkingLot getParkingLot() {
+    public parkingLot getParkingLot() {
         return parkingLot;
     }
 
-    public void setParkingLot(com.oocl.cultivation.parkingLot parkingLot) {
+    public void setParkingLot(parkingLot parkingLot) {
         this.parkingLot = parkingLot;
     }
 }
