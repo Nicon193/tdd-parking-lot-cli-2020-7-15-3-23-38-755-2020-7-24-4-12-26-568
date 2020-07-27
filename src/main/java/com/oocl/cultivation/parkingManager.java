@@ -1,10 +1,13 @@
 package com.oocl.cultivation;
 
-public class parkingManager {
+import java.util.ArrayList;
+import java.util.List;
 
+public class parkingManager extends parkingBoy{
+    List<parkingBoy> parkingBoyList = new ArrayList<>();
 
 
     public boolean addParkingBoy(parkingBoy parkingBoy) {
-        return false;
+        return parkingBoyList.add(parkingBoy);
     }
 }
