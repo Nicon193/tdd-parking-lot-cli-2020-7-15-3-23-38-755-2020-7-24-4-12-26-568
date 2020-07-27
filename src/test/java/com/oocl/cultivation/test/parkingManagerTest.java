@@ -39,5 +39,23 @@ public class parkingManagerTest {
         assertNotNull(ticket);
     }
 
+    @Test
+    void should_return_car_when_parkingManager_fetchCar_given_ticket() throws Exception {
+        //given
+        Car car = new Car();
+
+        //when
+        parkingManager manager = new parkingManager();
+        ArrayList<parkingLot> parkingLotList = new ArrayList<>();
+        parkingLot parkingLot =new parkingLot();
+        parkingLotList.add(parkingLot);
+        manager.setParkingLotList(parkingLotList);
+        carTicket ticket= manager.parkCar(car);
+
+        Car car1 =manager.fetchCar(ticket);
+
+        //then
+        assertTrue(car==car1);
+    }
 
 }
