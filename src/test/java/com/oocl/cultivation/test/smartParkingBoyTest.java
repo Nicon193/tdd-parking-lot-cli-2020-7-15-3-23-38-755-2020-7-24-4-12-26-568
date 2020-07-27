@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class smartParkingBoyTest {
     @Test
-    void should_return_ticket_when_smartParkingBoy_parkCar_given_car_toMostIdleLot() {
+    void should_return_ticket_when_smartParkingBoy_parkCar_given_car_toMostIdleLot() throws Exception {
         //given
         Car car = new Car();
         //when

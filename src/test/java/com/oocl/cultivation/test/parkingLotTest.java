@@ -1,18 +1,17 @@
 package com.oocl.cultivation.test;
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.carTicket;
-import com.oocl.cultivation.parkingLot;
+import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 
-import java.util.concurrent.locks.LockSupport;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+
 public class parkingLotTest {
     @Test
-    void should_return_carTicket_when_parkingLot_park_given_car() {
+    void should_return_carTicket_when_parkingLot_park_given_car() throws Exception {
         //given
         Car car = new Car();
 
@@ -25,7 +24,7 @@ public class parkingLotTest {
     }
 
     @Test
-    void should_return_carTicket_when_parkingLot_park_given_multiCars() {
+    void should_return_carTicket_when_parkingLot_park_given_multiCars() throws Exception {
         //given
         Car car = new Car();
 
@@ -39,7 +38,7 @@ public class parkingLotTest {
     }
 
     @Test
-    void should_fetch_car_when_parkingLot_parkingLot_fetch_given_carTicket() {
+    void should_fetch_car_when_parkingLot_parkingLot_fetch_given_carTicket() throws Exception {
         //given
         Car car = new Car();
 
@@ -53,7 +52,7 @@ public class parkingLotTest {
     }
 
     @Test
-    void should_noCar_when_parkingLot_parkingLot_fetch_given_wrongCarTicket() {
+    void should_noCar_when_parkingLot_parkingLot_fetch_given_wrongCarTicket() throws Exception {
         //given
         carTicket ticket =new carTicket();
 
@@ -67,7 +66,7 @@ public class parkingLotTest {
     }
 
     @Test
-    void should_noCar_when_parkingLot_parkingLot_fetch_given_hadUsedCarTicket() {
+    void should_noCar_when_parkingLot_parkingLot_fetch_given_hadUsedCarTicket() throws Exception {
         //given
         Car car = new Car();
 
@@ -82,7 +81,7 @@ public class parkingLotTest {
     }
 
     @Test
-    void should_cantParkingCar_when_parkingLot_parkingLot_park_given_parkGT10() {
+    void should_cantParkingCar_when_parkingLot_parkingLot_park_given_parkGT10() throws Exception {
         //given
         carTicket ticket =new carTicket();
 
@@ -96,4 +95,7 @@ public class parkingLotTest {
         //then
         assertNull(ticket);
     }
+
+
+
 }

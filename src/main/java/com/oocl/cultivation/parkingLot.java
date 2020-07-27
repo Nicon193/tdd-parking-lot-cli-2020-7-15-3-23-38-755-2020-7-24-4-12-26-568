@@ -14,10 +14,11 @@ public class parkingLot {
         this.capacity = capacity;
     }
 
-    public carTicket park(Car car) {
+    public carTicket park(Car car) throws Exception {
+
         carTicket ticket = null;
         if (map.size() == capacity) {
-            return ticket;
+            return null;
         } else {
             ticket = new carTicket();
             map.put(ticket, car);
@@ -25,10 +26,20 @@ public class parkingLot {
         return ticket;
     }
 
-    public Car fetch(carTicket ticket) {
-        Car car = map.get(ticket);
+    public Car fetch(carTicket ticket) throws Exception {
+         Car car=null;
+        if(isTicketReal(ticket)){
+         car = map.get(ticket);
         map.remove(ticket);
         return car;
+        }else
+            {
+                throw new Exception("Unrecognized parking ticket.");
+        }
+    }
+
+    public boolean isTicketReal(carTicket ticket) {
+       return this.getMap().containsKey(ticket);
     }
 
     public int returnIdleNum(){

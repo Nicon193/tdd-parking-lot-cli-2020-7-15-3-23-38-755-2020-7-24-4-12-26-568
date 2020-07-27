@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 
 public class superSmartParkingTest {
     @Test
-    void should_return_ticket_when_superSmartParkingBoy_parkCar_given_car_toMostAvailablePosition() {
+    void should_return_ticket_when_superSmartParkingBoy_parkCar_given_car_toMostAvailablePosition() throws Exception {
         //given
         Car car = new Car();
         //when

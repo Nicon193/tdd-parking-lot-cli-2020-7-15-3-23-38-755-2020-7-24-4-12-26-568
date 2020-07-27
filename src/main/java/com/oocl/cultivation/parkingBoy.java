@@ -6,8 +6,9 @@ public class parkingBoy {
     ArrayList<parkingLot> parkingLotList;
 
 
-    public carTicket parkCar(Car car) {
-        carTicket ticket=null;
+    public carTicket parkCar(Car car) throws Exception {
+
+        carTicket ticket =null;
         for (parkingLot parkinglot:parkingLotList) {
             ticket=parkinglot.park(car);
             if (ticket!=null){
@@ -16,12 +17,18 @@ public class parkingBoy {
                 break;
             }
         }
+        if(ticket==null){
+            throw new Exception("Not enough position.");
+        }
         return ticket;
+
     }
 
-    public Car fetchCar(carTicket ticket) {
+    public Car fetchCar(carTicket ticket) throws Exception {
+        if(ticket==null) {
+            throw new Exception("Please provide your parking ticket.");
 
-        if(ticket==null) return null;
+            }
 
         return ticket.getParkingLot().fetch(ticket);
     }

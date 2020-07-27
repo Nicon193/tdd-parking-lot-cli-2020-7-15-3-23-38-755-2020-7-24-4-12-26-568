@@ -8,12 +8,13 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
+import static org.fest.assertions.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class parkingBoyTest {
 
     @Test
-    void should_return_ticket_when_parkingBoy_parkCar_given_car() {
+    void should_return_ticket_when_parkingBoy_parkCar_given_car() throws Exception {
         //given
         Car car = new Car();
 
@@ -31,7 +32,7 @@ public class parkingBoyTest {
     }
 
     @Test
-    void should_return_multiTickets_when_parkingBoy_parkCar_given_multiCars() {
+    void should_return_multiTickets_when_parkingBoy_parkCar_given_multiCars() throws Exception {
         //given
         Car car1 = new Car();
         Car car2 = new Car();
@@ -51,7 +52,7 @@ public class parkingBoyTest {
     }
 
     @Test
-    void should_fetch_car_when_parkingBoy_fetchCar_given_carTicket() {
+    void should_fetch_car_when_parkingBoy_fetchCar_given_carTicket() throws Exception {
         //given
         Car car = new Car();
 
@@ -70,7 +71,7 @@ public class parkingBoyTest {
     }
 
     @Test
-    void should_return_ticket_when_parkingBoy_parkCar_given_car_toAnotherLot() {
+    void should_return_ticket_when_parkingBoy_parkCar_given_car_toAnotherLot() throws Exception {
         //given
         Car car = new Car();
         //when
@@ -90,7 +91,23 @@ public class parkingBoyTest {
         assertNotNull(ticket);
     }
 
-
+    @Test
+    void should_errorMessage_when_parkingBoy_park_given_noCarTicket() throws Exception {
+        //given
+        parkingLot parkinglot = new parkingLot();
+        ArrayList<parkingLot> parkingLotList =new ArrayList<>();
+        parkingLotList.add(parkinglot);
+        parkingBoy parkingBoy = new parkingBoy();
+        parkingBoy.setParkingLotList(parkingLotList);
+        //when
+        try {
+            parkingBoy.fetchCar(null);
+        }
+        //then
+        catch (Exception e){
+            assertEquals("Please provide your parking ticket.",e.getMessage());
+        }
+    }
 
 
 
