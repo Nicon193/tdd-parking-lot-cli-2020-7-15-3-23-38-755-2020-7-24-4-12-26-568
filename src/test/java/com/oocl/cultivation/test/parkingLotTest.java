@@ -58,10 +58,15 @@ public class parkingLotTest {
         //when
         parkingLot parkinglot = new parkingLot();
 
-        Car carFetch =parkinglot.fetch(ticket);
+        try {
+            parkinglot.fetch(ticket);
+        }
 
         //then
-        assertNull(carFetch);
+        catch (Exception e){
+            assertEquals("Unrecognized parking ticket.",e.getMessage());
+        }
+
     }
 
     @Test
@@ -73,11 +78,17 @@ public class parkingLotTest {
         parkingLot parkinglot = new parkingLot();
         carTicket ticket = parkinglot.park(car);
         parkinglot.fetch(ticket);
-        Car secondFetchCar = parkinglot.fetch(ticket);
+
+        try {
+            parkinglot.fetch(ticket);
+        }
 
         //then
-        assertNull(secondFetchCar);
+        catch (Exception e){
+            assertEquals("Unrecognized parking ticket.",e.getMessage());
+        }
     }
+
 
     @Test
     void should_cantParkingCar_when_parkingLot_parkingLot_park_given_parkGT10() throws Exception {
@@ -95,22 +106,6 @@ public class parkingLotTest {
         assertNull(ticket);
     }
 
-    @Test
-    void should_errorMessage_when_parkingLot_fetch_given_wrongOrUsedCarTicket() throws Exception {
-        //given
-        parkingLot parkinglot = new parkingLot();
-        carTicket ticket =new carTicket();
-
-        //when
-        try {
-            parkinglot.fetch(ticket);
-        }
-
-        //then
-        catch (Exception e){
-           assertEquals("Unrecognized parking ticket.",e.getMessage());
-        }
-    }
 
 
 }
