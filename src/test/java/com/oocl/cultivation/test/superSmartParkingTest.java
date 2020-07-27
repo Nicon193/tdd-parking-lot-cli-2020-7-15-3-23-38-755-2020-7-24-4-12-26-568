@@ -14,18 +14,21 @@ public class superSmartParkingTest {
         Car car = new Car();
         //when
         ArrayList<parkingLot> parkingLotList =new ArrayList<>();
-        for (int i = 0; i <3 ; i++) {
+        for (int i = 0; i <2 ; i++) {
             parkingLotList.add(new parkingLot());
         }
 
+        parkingLotList.get(0).setCapacity(20);
+        parkingLotList.get(0).park(new Car());
+        parkingLotList.get(1).park(new Car());
+
+
         superSmartParkingBoy superSmartParkingBoy = new superSmartParkingBoy();
         superSmartParkingBoy.setParkingLotList(parkingLotList);
-        for (int i = 0; i <2 ; i++) {
-            superSmartParkingBoy.parkCar(new Car());
-        }
+
         carTicket ticket =superSmartParkingBoy.parkCar(car);
 
         //then
-        assertSame(parkingLotList.get(2),ticket.getParkingLot());
+        assertSame(parkingLotList.get(0),ticket.getParkingLot());
     }
 }
