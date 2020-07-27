@@ -5,7 +5,7 @@ public class superSmartParkingBoy extends parkingBoy{
     @Override
     public carTicket parkCar(Car car) {
         carTicket ticket ;
-        parkingLot mostAvailablePositionLot = null;
+        parkingLot mostAvailablePositionLot = this.getParkingLotList().get(0);
 
         for (int i = 0; i <this.getParkingLotList().size()-1; i++) {
             int firstCapacity =getParkingLotList().get(i).getCapacity();
@@ -18,7 +18,7 @@ public class superSmartParkingBoy extends parkingBoy{
         }
 
 
-        assert mostAvailablePositionLot != null;
+
         ticket=mostAvailablePositionLot.park(car);
         ticket.setParkingLot(mostAvailablePositionLot);
         ticket.setCar(car);

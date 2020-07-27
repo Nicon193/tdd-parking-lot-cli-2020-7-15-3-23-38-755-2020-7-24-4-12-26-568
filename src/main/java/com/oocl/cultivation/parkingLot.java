@@ -31,6 +31,11 @@ public class parkingLot {
         return car;
     }
 
+    public int returnIdleLNum(){
+        return this.getCapacity()-this.getMap().size();
+    }
+
+
     public HashMap<carTicket, Car> getMap() {
         return map;
     }
