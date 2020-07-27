@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class parkingManagerTest {
 
@@ -100,6 +99,32 @@ public class parkingManagerTest {
 
         //then
         assertTrue(car == car1);
+    }
+
+
+    @Test
+    void should_errorMessage_when_parkingManager_appointOneToPark_false_given_car_noPlaceToPark() throws Exception {
+        //given
+        Car car = new Car();
+        //when
+        ArrayList<parkingLot> parkingLotList = new ArrayList<>();
+
+        parkingLotList.add(new parkingLot());
+
+        parkingBoy parkingboy = new parkingBoy();
+        parkingboy.setParkingLotList(parkingLotList);
+        parkingManager manager = new parkingManager();
+        manager.addParkingBoy(parkingboy);
+        for (int i = 0; i < 10; i++) {
+            parkingboy.parkCar(new Car());
+        }
+        try {
+            carTicket ticket = manager.appointOneToPark(0,car);
+        }
+        //then
+        catch (Exception e) {
+            assertEquals("Not enough position.", e.getMessage());
+        }
     }
 
 
