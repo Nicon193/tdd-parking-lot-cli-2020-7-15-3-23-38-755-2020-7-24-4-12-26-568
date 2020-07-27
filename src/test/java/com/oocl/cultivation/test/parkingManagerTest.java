@@ -1,9 +1,11 @@
 package com.oocl.cultivation.test;
 
-import com.oocl.cultivation.parkingBoy;
-import com.oocl.cultivation.parkingManager;
+import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class parkingManagerTest {
@@ -20,4 +22,22 @@ public class parkingManagerTest {
         //then
         assertTrue(result);
     }
+    @Test
+    void should_return_ticket_true_when_parkingManager_park_given_car() throws Exception {
+        //given
+        Car car = new Car();
+
+        //when
+        parkingManager manager = new parkingManager();
+        ArrayList<parkingLot> parkingLotList = new ArrayList<>();
+        parkingLot parkingLot =new parkingLot();
+        parkingLotList.add(parkingLot);
+        manager.setParkingLotList(parkingLotList);
+        carTicket ticket= manager.parkCar(car);
+
+        //then
+        assertNotNull(ticket);
+    }
+
+
 }
