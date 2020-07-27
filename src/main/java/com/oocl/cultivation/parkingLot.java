@@ -38,6 +38,8 @@ public class parkingLot {
         }
     }
 
+
+
     public boolean isTicketReal(carTicket ticket) {
        return this.getMap().containsKey(ticket);
     }

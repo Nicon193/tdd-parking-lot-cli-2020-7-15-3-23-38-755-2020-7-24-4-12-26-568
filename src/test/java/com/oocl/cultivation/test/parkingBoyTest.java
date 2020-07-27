@@ -109,6 +109,28 @@ public class parkingBoyTest {
         }
     }
 
+    @Test
+    void should_errorMessage_when_parkingBoy_parkCar_given_car_noPlaceToPark() throws Exception {
+        //given
+        Car car = new Car();
+        //when
+        ArrayList<parkingLot> parkingLotList =new ArrayList<>();
+
+        parkingLotList.add(new parkingLot());
+
+        parkingBoy parkingboy = new parkingBoy();
+        parkingboy.setParkingLotList(parkingLotList);
+        for (int i = 0; i <10 ; i++) {
+            parkingboy.parkCar(new Car());
+        }
+        try {
+            carTicket ticket =parkingboy.parkCar(car);
+        }
+        //then
+        catch (Exception e){
+            assertEquals("Not enough position.",e.getMessage());
+        }
+    }
 
 
 }
