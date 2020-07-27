@@ -8,6 +8,20 @@ public class parkingManager extends parkingBoy{
 
 
     public boolean addParkingBoy(parkingBoy parkingBoy) {
+
         return parkingBoyList.add(parkingBoy);
+    }
+
+    public carTicket appointOneToPark(int i, Car car) throws Exception {
+
+        if(i<parkingBoyList.size()){
+           return parkingBoyList.get(i).parkCar(car);
+        }
+        return null;
+    }
+
+    public Car appointOneToFetch(int i, carTicket ticket) throws Exception {
+        return parkingBoyList.get(i).fetchCar(ticket);
+
     }
 }

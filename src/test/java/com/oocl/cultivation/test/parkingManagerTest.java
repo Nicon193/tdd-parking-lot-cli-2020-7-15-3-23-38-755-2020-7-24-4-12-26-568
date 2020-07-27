@@ -58,4 +58,49 @@ public class parkingManagerTest {
         assertTrue(car==car1);
     }
 
+    @Test
+    void should_return_ticket_when_parkingManager_appointOneToPark_given_car() throws Exception {
+        //given
+        Car car = new Car();
+
+        //when
+        parkingManager manager = new parkingManager();
+        ArrayList<parkingLot> parkingLotList = new ArrayList<>();
+        parkingLot parkingLot =new parkingLot();
+        parkingLotList.add(parkingLot);
+        manager.addParkingBoy(new parkingBoy(parkingLotList));
+        manager.addParkingBoy(new smartParkingBoy(parkingLotList));
+        manager.addParkingBoy(new superSmartParkingBoy(parkingLotList));
+
+       carTicket ticket = manager.appointOneToPark(2,car);
+
+
+        //then
+        assertNotNull(ticket);
+    }
+
+    @Test
+    void should_return_car_when_parkingManager_appointOneToFetch_given_ticket() throws Exception {
+        //given
+        Car car = new Car();
+
+        //when
+        parkingManager manager = new parkingManager();
+        ArrayList<parkingLot> parkingLotList = new ArrayList<>();
+        parkingLot parkingLot =new parkingLot();
+        parkingLotList.add(parkingLot);
+        manager.addParkingBoy(new parkingBoy(parkingLotList));
+        manager.addParkingBoy(new smartParkingBoy(parkingLotList));
+        manager.addParkingBoy(new superSmartParkingBoy(parkingLotList));
+
+        carTicket ticket = manager.appointOneToPark(2,car);
+
+        Car car1 =manager.appointOneToFetch(0,ticket);
+
+
+        //then
+        assertTrue(car == car1);
+    }
+
+
 }

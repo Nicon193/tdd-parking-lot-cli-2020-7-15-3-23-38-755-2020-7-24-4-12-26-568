@@ -1,6 +1,16 @@
 package com.oocl.cultivation;
 
+import java.util.ArrayList;
+
 public class superSmartParkingBoy extends parkingBoy {
+
+    public superSmartParkingBoy() {
+
+    }
+
+    public superSmartParkingBoy(ArrayList<parkingLot> parkingLotList) {
+        this.parkingLotList=parkingLotList;
+    }
 
     @Override
     public carTicket parkCar(Car car) throws Exception {

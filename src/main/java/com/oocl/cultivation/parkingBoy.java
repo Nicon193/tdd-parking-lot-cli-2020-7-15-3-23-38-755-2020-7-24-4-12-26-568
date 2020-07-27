@@ -5,6 +5,13 @@ import java.util.ArrayList;
 public class parkingBoy {
     ArrayList<parkingLot> parkingLotList;
 
+    public parkingBoy() {
+
+    }
+
+    public parkingBoy(ArrayList<parkingLot> parkingLotList) {
+        this.parkingLotList = parkingLotList;
+    }
 
     public carTicket parkCar(Car car) throws Exception {
 
