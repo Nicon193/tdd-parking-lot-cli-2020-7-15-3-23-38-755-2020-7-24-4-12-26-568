@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class parkingLot {
     private int capacity = 10;
-    HashMap<carTicket, Car> map = new HashMap<>();
+    HashMap<carTicket, Car> ticketCarMap = new HashMap<>();
 
     public parkingLot() {
 
@@ -17,44 +17,42 @@ public class parkingLot {
     public carTicket park(Car car) throws Exception {
 
         carTicket ticket = null;
-        if (map.size() == capacity) {
+        if (ticketCarMap.size() == capacity) {
             return null;
         } else {
             ticket = new carTicket();
-            map.put(ticket, car);
+            ticketCarMap.put(ticket, car);
         }
         return ticket;
     }
 
     public Car fetch(carTicket ticket) throws Exception {
-         Car car=null;
-        if(isTicketReal(ticket)){
-         car = map.get(ticket);
-        map.remove(ticket);
-        return car;
-        }else
-            {
-                throw new Exception("Unrecognized parking ticket.");
+        Car car = null;
+        if (isTicketReal(ticket)) {
+            car = ticketCarMap.get(ticket);
+            ticketCarMap.remove(ticket);
+            return car;
+        } else {
+            throw new Exception("Unrecognized parking ticket.");
         }
     }
 
 
-
     public boolean isTicketReal(carTicket ticket) {
-       return this.getMap().containsKey(ticket);
+        return this.getTicketCarMap().containsKey(ticket);
     }
 
-    public int returnIdleNum(){
-        return this.getCapacity()-this.getMap().size();
+    public int returnIdleNum() {
+        return this.getCapacity() - this.getTicketCarMap().size();
     }
 
 
-    public double returnAvailablePositionRate(){
-        return this.returnIdleNum()*1.0/this.getCapacity();
+    public double returnAvailablePositionRate() {
+        return this.returnIdleNum() * 1.0 / this.getCapacity();
     }
 
-    public HashMap<carTicket, Car> getMap() {
-        return map;
+    public HashMap<carTicket, Car> getTicketCarMap() {
+        return ticketCarMap;
     }
 
     public int getCapacity() {

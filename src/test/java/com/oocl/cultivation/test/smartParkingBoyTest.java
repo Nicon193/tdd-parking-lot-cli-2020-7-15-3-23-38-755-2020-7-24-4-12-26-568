@@ -17,19 +17,19 @@ public class smartParkingBoyTest {
         //given
         Car car = new Car();
         //when
-        ArrayList<parkingLot> parkingLotList =new ArrayList<>();
-        for (int i = 0; i <3 ; i++) {
+        ArrayList<parkingLot> parkingLotList = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
             parkingLotList.add(new parkingLot());
         }
 
         smartParkingBoy smartParkingBoy = new smartParkingBoy();
         smartParkingBoy.setParkingLotList(parkingLotList);
-        for (int i = 0; i <2 ; i++) {
+        for (int i = 0; i < 2; i++) {
             smartParkingBoy.parkCar(new Car());
         }
-        carTicket ticket =smartParkingBoy.parkCar(car);
+        carTicket ticket = smartParkingBoy.parkCar(car);
 
         //then
-        assertSame(parkingLotList.get(2),ticket.getParkingLot());
+        assertSame(parkingLotList.get(2), ticket.getParkingLot());
     }
 }

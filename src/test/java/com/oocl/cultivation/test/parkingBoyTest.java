@@ -20,7 +20,7 @@ public class parkingBoyTest {
 
         //when
         parkingLot parkinglot = new parkingLot();
-        ArrayList<parkingLot> parkingLotList =new ArrayList<>();
+        ArrayList<parkingLot> parkingLotList = new ArrayList<>();
         parkingLotList.add(parkinglot);
         parkingBoy parkingboy = new parkingBoy();
         parkingboy.setParkingLotList(parkingLotList);
@@ -39,7 +39,7 @@ public class parkingBoyTest {
 
         //when
         parkingLot parkinglot = new parkingLot();
-        ArrayList<parkingLot> parkingLotList =new ArrayList<>();
+        ArrayList<parkingLot> parkingLotList = new ArrayList<>();
         parkingLotList.add(parkinglot);
         parkingBoy parkingboy = new parkingBoy();
         parkingboy.setParkingLotList(parkingLotList);
@@ -59,7 +59,7 @@ public class parkingBoyTest {
         //when
         parkingLot parkinglot = new parkingLot();
         parkingBoy parkingboy = new parkingBoy();
-        ArrayList<parkingLot> parkingLotList =new ArrayList<>();
+        ArrayList<parkingLot> parkingLotList = new ArrayList<>();
         parkingLotList.add(parkinglot);
         parkingboy.setParkingLotList(parkingLotList);
 
@@ -75,17 +75,17 @@ public class parkingBoyTest {
         //given
         Car car = new Car();
         //when
-        ArrayList<parkingLot> parkingLotList =new ArrayList<>();
-        for (int i = 0; i <3 ; i++) {
+        ArrayList<parkingLot> parkingLotList = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
             parkingLotList.add(new parkingLot());
         }
 
         parkingBoy parkingboy = new parkingBoy();
         parkingboy.setParkingLotList(parkingLotList);
-        for (int i = 0; i <10 ; i++) {
+        for (int i = 0; i < 10; i++) {
             parkingboy.parkCar(new Car());
         }
-        carTicket ticket =parkingboy.parkCar(car);
+        carTicket ticket = parkingboy.parkCar(car);
 
         //then
         assertNotNull(ticket);
@@ -95,7 +95,7 @@ public class parkingBoyTest {
     void should_errorMessage_when_parkingBoy_park_given_noCarTicket() throws Exception {
         //given
         parkingLot parkinglot = new parkingLot();
-        ArrayList<parkingLot> parkingLotList =new ArrayList<>();
+        ArrayList<parkingLot> parkingLotList = new ArrayList<>();
         parkingLotList.add(parkinglot);
         parkingBoy parkingBoy = new parkingBoy();
         parkingBoy.setParkingLotList(parkingLotList);
@@ -104,8 +104,8 @@ public class parkingBoyTest {
             parkingBoy.fetchCar(null);
         }
         //then
-        catch (Exception e){
-            assertEquals("Please provide your parking ticket.",e.getMessage());
+        catch (Exception e) {
+            assertEquals("Please provide your parking ticket.", e.getMessage());
         }
     }
 
@@ -114,23 +114,22 @@ public class parkingBoyTest {
         //given
         Car car = new Car();
         //when
-        ArrayList<parkingLot> parkingLotList =new ArrayList<>();
+        ArrayList<parkingLot> parkingLotList = new ArrayList<>();
 
         parkingLotList.add(new parkingLot());
 
         parkingBoy parkingboy = new parkingBoy();
         parkingboy.setParkingLotList(parkingLotList);
-        for (int i = 0; i <10 ; i++) {
+        for (int i = 0; i < 10; i++) {
             parkingboy.parkCar(new Car());
         }
         try {
-            carTicket ticket =parkingboy.parkCar(car);
+            carTicket ticket = parkingboy.parkCar(car);
         }
         //then
-        catch (Exception e){
-            assertEquals("Not enough position.",e.getMessage());
+        catch (Exception e) {
+            assertEquals("Not enough position.", e.getMessage());
         }
     }
-
 
 }

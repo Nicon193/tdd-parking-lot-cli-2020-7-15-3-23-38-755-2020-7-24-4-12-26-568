@@ -13,8 +13,8 @@ public class superSmartParkingTest {
         //given
         Car car = new Car();
         //when
-        ArrayList<parkingLot> parkingLotList =new ArrayList<>();
-        for (int i = 0; i <2 ; i++) {
+        ArrayList<parkingLot> parkingLotList = new ArrayList<>();
+        for (int i = 0; i < 2; i++) {
             parkingLotList.add(new parkingLot());
         }
 
@@ -26,9 +26,9 @@ public class superSmartParkingTest {
         superSmartParkingBoy superSmartParkingBoy = new superSmartParkingBoy();
         superSmartParkingBoy.setParkingLotList(parkingLotList);
 
-        carTicket ticket =superSmartParkingBoy.parkCar(car);
+        carTicket ticket = superSmartParkingBoy.parkCar(car);
 
         //then
-        assertSame(parkingLotList.get(0),ticket.getParkingLot());
+        assertSame(parkingLotList.get(0), ticket.getParkingLot());
     }
 }

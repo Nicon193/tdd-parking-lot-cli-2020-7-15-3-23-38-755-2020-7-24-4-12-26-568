@@ -16,7 +16,7 @@ public class superSmartParkingBoy extends parkingBoy {
         }
         ticket = mostAvailablePositionLot.park(car);
 
-        if(ticket==null){
+        if (ticket == null) {
             throw new Exception("Not enough position.");
         }
 

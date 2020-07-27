@@ -16,7 +16,7 @@ public class parkingLotTest {
 
         //when
         parkingLot parkinglot = new parkingLot();
-        carTicket ticket =parkinglot.park(car);
+        carTicket ticket = parkinglot.park(car);
 
         //then
         assertNotNull(ticket);
@@ -30,7 +30,7 @@ public class parkingLotTest {
 
         //when
         parkingLot parkinglot = new parkingLot();
-        carTicket ticket =parkinglot.park(car);
+        carTicket ticket = parkinglot.park(car);
 
         //then
         assertNotNull(ticket);
@@ -43,8 +43,8 @@ public class parkingLotTest {
 
         //when
         parkingLot parkinglot = new parkingLot();
-        carTicket ticket =parkinglot.park(car);
-        Car carFetch =parkinglot.fetch(ticket);
+        carTicket ticket = parkinglot.park(car);
+        Car carFetch = parkinglot.fetch(ticket);
 
         //then
         assertNotNull(carFetch);
@@ -53,7 +53,7 @@ public class parkingLotTest {
     @Test
     void should_noCar_when_parkingLot_parkingLot_fetch_given_wrongCarTicket() throws Exception {
         //given
-        carTicket ticket =new carTicket();
+        carTicket ticket = new carTicket();
 
         //when
         parkingLot parkinglot = new parkingLot();
@@ -63,8 +63,8 @@ public class parkingLotTest {
         }
 
         //then
-        catch (Exception e){
-            assertEquals("Unrecognized parking ticket.",e.getMessage());
+        catch (Exception e) {
+            assertEquals("Unrecognized parking ticket.", e.getMessage());
         }
 
     }
@@ -84,8 +84,8 @@ public class parkingLotTest {
         }
 
         //then
-        catch (Exception e){
-            assertEquals("Unrecognized parking ticket.",e.getMessage());
+        catch (Exception e) {
+            assertEquals("Unrecognized parking ticket.", e.getMessage());
         }
     }
 
@@ -93,19 +93,16 @@ public class parkingLotTest {
     @Test
     void should_cantParkingCar_when_parkingLot_parkingLot_park_given_parkGT10() throws Exception {
         //given
-        carTicket ticket =new carTicket();
-
+        carTicket ticket = new carTicket();
 
         //when
         parkingLot parkinglot = new parkingLot(10);
-        for (int i = 0; i <=10 ; i++) {
-            ticket= parkinglot.park(new Car());
+        for (int i = 0; i <= 10; i++) {
+            ticket = parkinglot.park(new Car());
         }
-
         //then
         assertNull(ticket);
     }
-
 
 
 }
