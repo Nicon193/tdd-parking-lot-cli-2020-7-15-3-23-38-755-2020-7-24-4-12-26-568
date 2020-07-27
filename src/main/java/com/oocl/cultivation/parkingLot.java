@@ -31,10 +31,14 @@ public class parkingLot {
         return car;
     }
 
-    public int returnIdleLNum(){
+    public int returnIdleNum(){
         return this.getCapacity()-this.getMap().size();
     }
 
+
+    public double returnAvailablePositionRate(){
+        return this.returnIdleNum()*1.0/this.getCapacity();
+    }
 
     public HashMap<carTicket, Car> getMap() {
         return map;
