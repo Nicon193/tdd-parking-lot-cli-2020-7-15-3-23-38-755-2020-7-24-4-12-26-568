@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class parkingLotTest {
@@ -96,6 +95,22 @@ public class parkingLotTest {
         assertNull(ticket);
     }
 
+    @Test
+    void should_errorMessage_when_parkingLot_fetch_given_wrongOrUsedCarTicket() throws Exception {
+        //given
+        parkingLot parkinglot = new parkingLot();
+        carTicket ticket =new carTicket();
+
+        //when
+        try {
+            parkinglot.fetch(ticket);
+        }
+
+        //then
+        catch (Exception e){
+           assertEquals("Unrecognized parking ticket.",e.getMessage());
+        }
+    }
 
 
 }
